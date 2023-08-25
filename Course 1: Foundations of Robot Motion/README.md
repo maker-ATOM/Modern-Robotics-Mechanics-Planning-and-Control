@@ -27,7 +27,7 @@ degrees of freedom of a rigid body (m = 3 for planar mechanisms and m = 6 for
 spatial mechanisms), fi be the number of freedoms provided by joint i, and ci be
 the number of constraints provided by joint i, where fi + ci = m for all i. Then Degree of Freedom (DOF) is given by, 
 <p align="center">
-	<img src="Course-1:Foundations-of-Robot-Motion/Images/grubler.png" width="100" height="100"/>
+	<img src="Images/grubler.png" width="282" height="106"/>
 </p>
 
 ## C-Space Topology
@@ -43,13 +43,25 @@ Topology is independent of how we represent the space.
 An implicit representation views the n-dimensional space as embedded in a Euclidean space of more than n dimensions.
 
 <p align="center">
-	<img src="Course-1:Foundations-of-Robot-Motion/Images/fourbarlinkage.png" width="200" height="200"/>
+	<img src="Images/fourbarlinkage.png" width="586" height="328"/>
 </p>
 
 The DOF of above 4-Bar linkage can we calculated using Grubler's formula which is 1.<br>
 1 DOF implies that the orientation of this 4-Bar linkage mechanism can be represented using single parameter/variable, which will be hard to derive and may contain singularities.
-
+<br>
 PS: A singularity is a particular point in a robot's workspace that causes the robot to lose one or more degrees of freedom (DoF)
+<br>
+Instead we can the orientation of the mechanism using four parameters that is with 4-DOF subject to to 3 constrains leading to 1-DOF.
+<br>
+This can be alternatively stated as 1D space embed in 4D space of θ<sub>1</sub>, θ<sub>2</sub>, θ<sub>3</sub> and θ<sub>4</sub>.
+
+<br>
+Holonomic constrains reduce the C-space and thus the DOF of the robot.
+<br>
+Non-holonomic constraints do not limit the C-space dimension but limit the motion of the robot (e.g. translation motion of a car).
+<br>
+
+**Velocities are not the time derivatives of coordinates.**
 
 ## Task Space and Workspace
 
