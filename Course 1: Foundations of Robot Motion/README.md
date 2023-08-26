@@ -134,39 +134,34 @@ $$
 
 **Moment** or **torque** of a force *f<sub>a</sub>* acting on a rigid body at point r represented as *r<sub>a</sub>* in frame {a} is:
 
-<p align="center">
-
-<i>m<sub>a</sub></i> = <i>r<sub>a</sub></i> x <i>f<sub>a</sub></i>
-
-</P>
+$$
+m_a = r_a * f_a
+$$
 
 Just as with twists, we can merge the moment and force into a single six- dimensional spatial force, or wrench, expressed in the {a} frame, Fa :
 
- <p align="center">
-	<img src="Images/wrench.png" width="394" height="266"/>
-</p>
+$$
+F_a = \begin{bmatrix}
+    m_{a}  \\
+    f_{a}
+\end{bmatrix}
+∈ ℝ^6
+$$
 
 Wrenches can be transformed from one frame to other using the fact that the power generated (dissipated) by an  wrench-twist pair must be same regardless of the frame in which they are represented.
 
- <p align="center">
-	<img src="Images/wprep.png" width="394" height="266"/>
-</p>
-
-
 $$
-A = \begin{bmatrix}
-    a_{11} & a_{12} \\
-    a_{21} & a_{22}
-\end{bmatrix}
-\quad
-x = \begin{bmatrix}
-    x_1 \\
-    x_2
-\end{bmatrix}
-\quad
-b = \begin{bmatrix}
-    b_1 \\
-    b_2
-\end{bmatrix}
+F_b = {Ad_{T_{ab}}}^{T} (F_a) = 
+\begin{bmatrix}
+    {Ad_{T_{ab}}}  \\
+\end{bmatrix}^T
+F_a
 $$
 
+$$
+F_a = {Ad_{T_{ba}}}^{T} (F_b) = 
+\begin{bmatrix}
+    {Ad_{T_{ba}}}  \\
+\end{bmatrix}^T
+F_b
+$$
