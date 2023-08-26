@@ -98,8 +98,11 @@ The point p exists in physical space, and it does not care how we represent it. 
 To describe the configuration of the planar body, only the position and
 orientation of the body frame with respect to the fixed frame need to be specified.
 
+<br>
+
 $\begin{bmatrix}X\\Y\end{bmatrix}$
 
+<br>
 ## Rotation Matrix
 
 ## Angular Velocities
