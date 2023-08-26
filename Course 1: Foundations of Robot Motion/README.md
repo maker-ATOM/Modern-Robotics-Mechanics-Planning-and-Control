@@ -20,11 +20,13 @@ A 3D rigid body can have maximum 6 DOF - 3 in Rotational and 3 in translation ab
 Consider a mechanism consisting of N links, where ground
 is also regarded as a link. Let J be the number of joints, m be the number of
 degrees of freedom of a rigid body (m = 3 for planar mechanisms and m = 6 for
-spatial mechanisms), fi be the number of freedoms provided by joint i, and ci be
+spatial mechanisms), f<sub>i</sub> be the number of freedoms provided by joint i, and ci be
 the number of constraints provided by joint i, where fi + ci = m for all i. Then Degree of Freedom (DOF) is given by, 
-<p align="center">
-	<img src="Images/grubler.png" width="282" height="106"/>
-</p>
+
+
+$$
+DOF = m (N-1-J) + \sum_{i=1}^{J} f_i
+$$
 
 ## C-Space Topology
 
@@ -51,10 +53,19 @@ Instead we can the orientation of the mechanism using four parameters that is wi
 <br>
 This can be alternatively stated as 1D space embed in 4D space of θ<sub>1</sub>, θ<sub>2</sub>, θ<sub>3</sub> and θ<sub>4</sub>.
 
-<p align="center">
-	<img src="Images/eqn.png" width="643" height="120"/>
-</p>
 
+$$
+L_1 cos(\theta_1) + L_2 cos(\theta_1+\theta_2) + ... + L_4 cos(\theta_1 + ...+ \theta_1) = 0
+$$
+
+
+$$
+L_1 sin(\theta_1) + L_2 sin(\theta_1+\theta_2) + ... + L_4 sin(\theta_1 + ...+ \theta_1) = 0
+$$
+
+$$
+\theta_1 + \theta_1 +\theta_1 + \theta_1 - 2\pi= 0
+$$
 
 <br>
 Holonomic constrains reduce the C-space and thus the DOF of the robot.
@@ -89,31 +100,60 @@ We also attach a body frame to our robot or the rigid body which is going to be 
  As the rigid body moves the frame associated with it also moves.
 
 <br>
-
  <p align="center">
 	<img src="Images/refframe.png" width="394" height="266"/>
 </p>
 
-The point p exists in physical space, and it does not care how we represent it. If we fix a reference frame {a}, with unit coordinate axes x̂<sub>a</sub> and ŷ<sub>a</sub> , we can represent p as pa = (1, 2). If we fix a reference frame {b} at a different location, a different orientation, and a different length scale, we can represent p as pb = (4, −2).
+The point p exists in physical space, and it does not care how we represent it. If we fix a reference frame {a}, with unit coordinate axes x̂<sub>a</sub> and ŷ<sub>a</sub> , we can represent p as p<sub>a</sub> = (1, 2). If we fix a reference frame {b} at a different location, a different orientation, and a different length scale, we can represent p as p<sub>b</sub> = (4, −2).
 
 <br>
 To describe the configuration of the planar body, only the position and
 orientation of the body frame with respect to the fixed frame need to be specified.
 
-<br>
-
-$$
-\begin{matrix}
-    a & b \\
-    c & d \\
-\end{matrix}
-$$
 
 <br>
+ <p align="center">
+	<img src="Images/frame.png" width="411" height="366"/>
+</p>
 
+The frame {b} in {s} is given by (P, p), and the frame {c} in {b} is given
+by (Q, q). From these we can derive the frame {c} in {s}, described by (R, r). The
+numerical values of the vectors p, q, and r and the coordinate-axis directions of the
+three frames are evident from the grid of unit squares.
 
+<br>
 
+ψ is the amount of rotation required to convert x̂<sub>b</sub> to x̂<sub>c</sub>.
 
+<br>
+point p which is the origin of frame {b} can be represented as column vector,
+
+$$
+p = \begin{bmatrix}
+    p_{x}  \\
+    p_{y}
+\end{bmatrix}
+$$
+
+this is nothing but translation matrix for frame {b}
+
+<br>
+the two vectors x̂<sub>c</sub> and ŷ<sub>b</sub> can be represented as,
+
+$$
+P = \begin{bmatrix}
+    x̂_{b}  &
+    ŷ_{b}
+\end{bmatrix}
+= \begin{bmatrix}
+    x̂_{s}.cos(\theta) & -x̂_s.sin(\theta) \\
+    p_{s}.sin(\theta) & ŷ_s.cos(\theta)
+\end{bmatrix}
+$$
+
+Matrix P is called as **Rotation matrix**
+
+Together, the pair (P, p) provides a description of the orientation and position of {b} relative to {s}.
 
 
 ## Rotation Matrix
