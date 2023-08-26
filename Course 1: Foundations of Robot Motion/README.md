@@ -131,3 +131,16 @@ $$
 ## Exponential Coordinates
 
 ## Wrench
+
+**Moment** or **torque** of a force *f<sub>a</sub>* acting on a rigid body at point r represented as *r<sub>a</sub>* in frame {a} is:
+
+<p align="center">
+
+<i>m<sub>a</sub></i> = <i>r<sub>a</sub></i> x <i>f<sub>a</sub></i>
+
+</P>
+
+Just as with twists, we can merge the moment and force into a single six- dimensional spatial force, or wrench, expressed in the {a} frame, Fa :
+
+
+\( F = \begin{matrix} m_a \\ f_a \end{matrix} \)
