@@ -142,5 +142,30 @@ $$
 
 Just as with twists, we can merge the moment and force into a single six- dimensional spatial force, or wrench, expressed in the {a} frame, Fa :
 
+ <p align="center">
+	<img src="Images/wrench.png" width="394" height="266"/>
+</p>
 
-\( F = \begin{matrix} m_a \\ f_a \end{matrix} \)
+Wrenches can be transformed from one frame to other using the fact that the power generated (dissipated) by an  wrench-twist pair must be same regardless of the frame in which they are represented.
+
+ <p align="center">
+	<img src="Images/wprep.png" width="394" height="266"/>
+</p>
+
+
+$$
+A = \begin{bmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
+\end{bmatrix}
+\quad
+x = \begin{bmatrix}
+    x_1 \\
+    x_2
+\end{bmatrix}
+\quad
+b = \begin{bmatrix}
+    b_1 \\
+    b_2
+\end{bmatrix}
+$$
