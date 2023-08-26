@@ -88,11 +88,13 @@ This reference frame is called as space frame denoted by {s}.
 We also attach a body frame to our robot or the rigid body which is going to be observed, denoted by {b}.
  As the rigid body moves the frame associated with it also moves.
 
+<br>
+
  <p align="center">
 	<img src="Images/refframe.png" width="394" height="266"/>
 </p>
 
-The point p exists in physical space, and it does not care how we represent it. If we fix a reference frame {a}, with unit coordinate axes x̂a and ŷa , we can represent p as pa = (1, 2). If we fix a reference frame {b} at a different location, a different orientation, and a different length scale, we can represent p as pb = (4, −2).
+The point p exists in physical space, and it does not care how we represent it. If we fix a reference frame {a}, with unit coordinate axes x̂<sub>a</sub> and ŷ<sub>a</sub> , we can represent p as pa = (1, 2). If we fix a reference frame {b} at a different location, a different orientation, and a different length scale, we can represent p as pb = (4, −2).
 
 <br>
 To describe the configuration of the planar body, only the position and
@@ -100,9 +102,20 @@ orientation of the body frame with respect to the fixed frame need to be specifi
 
 <br>
 
-$\begin{bmatrix}X\\Y\end{bmatrix}$
+$$
+\begin{matrix}
+    a & b \\
+    c & d \\
+\end{matrix}
+$$
 
 <br>
+
+
+
+
+
+
 ## Rotation Matrix
 
 ## Angular Velocities
