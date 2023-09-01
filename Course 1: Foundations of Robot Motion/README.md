@@ -197,6 +197,7 @@ $$
 $$
 
 In matrix form these can represented as,
+
 $$
 p = \begin{bmatrix}
     p_{1}  &
@@ -353,6 +354,7 @@ Rot(ω̂, \theta) =  e^{\begin{bmatrix}
 $$
 
 Conversion,
+
 $$
 exp: \begin{bmatrix}
     ω̂   
