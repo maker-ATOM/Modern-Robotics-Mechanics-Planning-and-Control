@@ -155,20 +155,335 @@ Matrix P is called as **Rotation matrix**
 
 Together, the pair (P, p) provides a description of the orientation and position of {b} relative to {s}.
 
+If we know (Q, q) (the configuration of {c} relative to {b}) and (P, p) (the configuration of {b} relative to {s}), we can compute the configuration of {c} relative to {s} as follows:
+
+$$
+R = PQ \quad (\text{convert } Q \text{ to the } {s} \text{ frame})
+$$
+
+Something like:
+
+$$
+\phi = \theta + \psi
+$$
+
+and
+
+$$
+r = P q + p \quad (\text{convert } q \text{ to the } {s} \text{ frame and vector-sum with } p).
+$$
+
+It does matter if we pre-multiply or post-multiply the rotational matrix <i>P</i>
+
+This concept can be generalized to 3D, to represent the frame {b} in fixed frame {s}, where the unit axes of the fixed frame is represented by {x̂<sub>s</sub> , ŷ<sub>s</sub> , ẑ<sub>s</sub>} and the unit axes of the body frame by {x̂<sub>b</sub> , ŷ<sub>b</sub> , ẑ<sub>b</sub>}.
+
+Let p denote the vector from the fixed-frame origin to the body-frame origin. In terms of the fixed-frame coordinates, p can be expressed as,
+
+$$
+p = p_1x̂_s + p_2ŷ_s + p_3ẑ_s
+$$
+
+The axes of the body frame can also be expressed as
+
+$$
+x̂_b = r_{11}x̂_s + r_{21}ŷ_s + r_{31}ẑ_s
+$$
+$$
+ŷ_b = r_{12}x̂_s + r_{22}ŷ_s + r_{32}ẑ_s
+$$
+$$
+ẑ_b = r_{13}x̂_s + r_{23}ŷ_s + r_{33}ẑ_s
+$$
+
+In matrix form these can represented as,
+$$
+p = \begin{bmatrix}
+    p_{1}  &
+    p_{2}  &
+    p_3
+\end{bmatrix}
+\quad \quad
+R = \begin{bmatrix}
+    x̂_b  &
+    ŷ_b  &
+    ẑ_b
+\end{bmatrix}
+=\begin{bmatrix}
+    r_{11} & r_{12} & r_{13} \\
+    r_{21} & r_{22} & r_{23} \\
+    r_{31} & r_{32} & r_{33}
+\end{bmatrix}
+$$
+
+the 12 parameters given by (R, p) then provide a description of the position and orientation of the rigid body relative to the fixed frame.
+Since the orientation of a rigid body has three degrees of freedom, only three of the nine entries in R can be chosen independently.
 
 ## Rotation Matrix
 
+The matrix R is called the rotational matrix.
+
+AS discussed the only three entries in R can be chosen independently that implies 6 constrains will be imposed on matrix R, which are:
+
+Each Column of matrix R will be a unit vector (sum of squares of coefficient which are r12 ... will be 1 for each column),
+
+and those unit vectors will be orthogonal to each other(dot product of vectors is zero),
+
+**Properties of Rotational Matrix**
+$$
+R^TR = I
+$$
+
+$$
+detR = 1
+$$
+
+Matrixes which satisfy these properties are called as special orthogonal group SO(3)
+
+**Uses of Rotation Matrix**
+
+1. To represent an orientation,
+
+R<sub>ac</sub> denotes orientation of c with respect to a.
+
+By property of rotational matrix,
+
+$$
+R_{ab} = R_{ba}^{-1} = R_{ba}^T
+$$
+
+2. To change the frame of reference in which a vector is represented,
+
+To represent a vector p which is currently represented in frame b to frame a, simply pre-multiply with rotational matrix of b wrt a.
+
+$$
+p_a = R_{ab}p_b
+$$
+
+Similar operation can be performed to represent a frame in some other frame.
+
+3. To rate a vector or a frame (represent a vector in another frame).
+
+A frame represented in other frame is actually rotated in that frame.
+
 ## Angular Velocities
+
+**Skew-symmetric notation**
+A vector.
+$$
+x = \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    x_3 
+\end{bmatrix}
+$$
+
+The skew-symmetric representation of x is,
+
+$$
+\begin{bmatrix}
+    x
+\end{bmatrix} =
+\begin{bmatrix}
+    0 & -x_3 & x_2 \\
+    x_3 & 0 & -x_1 \\
+    -x_2 & x_1 & 0
+\end{bmatrix}
+$$
+
+When a frame is rotated, the rotation can be considered about an axis ω represented in {s} frame and angle θ about that axis.
+
 
 ## Exponential Coordinate Representation
 
+The exponential coordinates parametrize
+a rotation matrix in terms of a rotation axis (represented by a unit vector ω̂ ) and an angle of rotation θ about that axis; the vector ω̂θ ∈ R3 then serves as the three-parameter exponential coordinate representation of the rotation. Writing ω̂ and θ individually is the axis-angle representation of a rotation.
+The exponential coordinate representation ω̂θ for a rotation matrix R can
+be interpreted equivalently as:
+- the axis ω̂ and rotation angle θ such that, if a frame initially coincident with {s} were rotated by θ about ω̂, its final orientation relative to {s} would be expressed by R; or
+- the angular velocity ω̂θ expressed in {s} such that, if a frame initially
+coincident with {s} followed ω̂θ for one unit of time (i.e., ω̂θ is integrated
+over this time interval), its final orientation would be expressed by R; or
+- the angular velocity ω̂ expressed in {s} such that, if a frame initially
+coincident with {s} followed ω̂ for θ units of time (i.e., ω̂ is integrated over
+this time interval) its final orientation would be expressed by R.
+
+<br>
+ <p align="center">
+	<img src="Images/vel.png" width="387" height="279"/>
+</p>
+
+The vector p(0) is rotated by an angle θ about the axis ω̂, to p(θ).
+
+Rate of change of p is denoted by  
+$$
+ω̂  * p(t)
+$$
+$$
+\implies ṗ(t) = ω̂  * p(t)
+$$
+With reference to  skew symmetric matrix representation,
+$$
+ṗ = \begin{bmatrix}
+    \omega
+\end{bmatrix}p
+$$
+$$
+p(\theta) = e^{\begin{bmatrix}
+    \omega
+\end{bmatrix}\theta}p(0)
+$$
+
+Given a vector ω̂θ ∈ R3 , such that θ is any scalar and ω̂ ∈ R3 is a unit vector, the matrix exponential of [ω̂]θ = [ω̂θ] ∈ so(3) is,
+
+$$
+Rot(ω̂, \theta) =  e^{\begin{bmatrix}
+    \omega
+\end{bmatrix}\theta} = I + sin\theta \begin{bmatrix}
+    \omega
+\end{bmatrix} + (1-cos \theta) \begin{bmatrix}
+    \omega
+\end{bmatrix}^2 \in SO(3)
+$$
+
+Conversion,
+$$
+exp: \begin{bmatrix}
+    ω̂   
+\end{bmatrix} \theta \in so(3) \implies R \in SO(3)
+$$
+
+$$
+log: R \in SO(3) \implies \begin{bmatrix}
+    ω̂   
+\end{bmatrix} \theta \in so(3) 
+$$
+
 ## Homogenous Transformation Matrix
 
+Homogenous transformation matrix is a combination of rotation matrix and vector p to represent the orientation of an rigid body using a single matrix.
+
+$$
+T = 
+\begin{bmatrix}
+    R & p \\
+    0 & 1
+\end{bmatrix}
+$$
+
+also known as special euclidean group SE(3),
+
+Properties,
+
+$$
+T^{-1}= 
+\begin{bmatrix}
+    R & p \\
+    0 & 1
+\end{bmatrix}^{-1} = 
+\begin{bmatrix}
+    R^T & -R^Tp \\
+    0 & 1
+\end{bmatrix}
+$$
+
+Uses of transformation matrix is same as rotational matrix,
+
+If we want to displace a vector of a frame, we simply multiply the transformation matrix by that vector of frame, care should be taken if the transformation matrix is being pre-multiplied or post multiplied.
+
+when pre-multiplied,
+
+TT<sub>sb</sub> , ω and p about which the transformation is happening  is represented in {s} frame.
+
+(Transforming frame T<sub>sb</sub> by multiplying it with T transformation matrix.)
+
+and when post-multiplied,
+
+T<sub>sb</sub>T , ω and p about which the transformation is happening  is represented in {b} frame.
+
 ## Twist
+Twist is combined representation of angular and linear velocities of the rigid body.
+
+
+$$
+V_b = \begin{bmatrix}
+    \omega_b \\
+    v_b
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+    V_b
+\end{bmatrix} = \begin{bmatrix}
+   \begin{bmatrix}
+    \omega_b
+\end{bmatrix} & v_b \\
+0 & 1
+\end{bmatrix}
+$$
+
+called as spatial velocities.
+
+Twists can be transformed from one frame to other,
+
+$$
+\begin{bmatrix}
+    V_b
+\end{bmatrix} = T_{sb}^{-1}  \begin{bmatrix}
+    V_s
+\end{bmatrix} T
+$$
+
+Adjoint representation of a transformation matrix,
+
+$$
+\begin{bmatrix}
+    Ad_T
+\end{bmatrix} = \begin{bmatrix}
+    R & 0 \\ \begin{bmatrix}
+    p
+\end{bmatrix} R & R
+\end{bmatrix}
+$$
 
 ## Screw
 
+As we had ω and θ to represent rotational axis for pure rotational motion,
+Screw axis is the one which can be used to represent rotational as well as linear motion.
+
+<br>
+ <p align="center">
+	<img src="Images/screw.png" width="691" height="362"/>
+</p>
+A screw axis S represented by a point q, a unit direction ŝ, and a pitch
+h.
+
+For a given frame screw axis is represented as,
+
+$$
+S = \begin{bmatrix}
+    \omega \\
+    v
+    \end{bmatrix}
+$$
+
+
 ## Exponential Coordinates
+
+By analogy to the exponential coordinates ω̂θ for rotations, we define the six-dimensional exponential coordinates of a homogeneous transformation
+T as Sθ ∈ R6
+
+$$
+exp: \begin{bmatrix}
+    S  
+\end{bmatrix} \theta \in se(3) \implies T \in SE(3)
+$$
+
+$$
+log: T \in SE(3) \implies \begin{bmatrix}
+    S  
+\end{bmatrix} \theta \in se(3) 
+$$
 
 ## Wrench
 
