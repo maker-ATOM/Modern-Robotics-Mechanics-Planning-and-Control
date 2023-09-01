@@ -99,7 +99,7 @@ This reference frame is called as space frame denoted by {s}.
 We also attach a body frame to our robot or the rigid body which is going to be observed, denoted by {b}.
  As the rigid body moves the frame associated with it also moves.
 
-<br>
+
  <p align="center">
 	<img src="Images/refframe.png" width="394" height="266"/>
 </p>
@@ -111,7 +111,6 @@ To describe the configuration of the planar body, only the position and
 orientation of the body frame with respect to the fixed frame need to be specified.
 
 
-<br>
  <p align="center">
 	<img src="Images/frame.png" width="411" height="366"/>
 </p>
@@ -188,9 +187,11 @@ The axes of the body frame can also be expressed as
 $$
 x̂_b = r_{11}x̂_s + r_{21}ŷ_s + r_{31}ẑ_s
 $$
+
 $$
 ŷ_b = r_{12}x̂_s + r_{22}ŷ_s + r_{32}ẑ_s
 $$
+
 $$
 ẑ_b = r_{13}x̂_s + r_{23}ŷ_s + r_{33}ẑ_s
 $$
@@ -268,7 +269,9 @@ A frame represented in other frame is actually rotated in that frame.
 ## Angular Velocities
 
 **Skew-symmetric notation**
-A vector.
+
+A vector,
+
 $$
 x = \begin{bmatrix}
     x_1 \\
@@ -315,18 +318,22 @@ this time interval) its final orientation would be expressed by R.
 The vector p(0) is rotated by an angle θ about the axis ω̂, to p(θ).
 
 Rate of change of p is denoted by  
+
 $$
 ω̂  * p(t)
 $$
 $$
 \implies ṗ(t) = ω̂  * p(t)
 $$
+
 With reference to  skew symmetric matrix representation,
+
 $$
 ṗ = \begin{bmatrix}
     \omega
 \end{bmatrix}p
 $$
+
 $$
 p(\theta) = e^{\begin{bmatrix}
     \omega
