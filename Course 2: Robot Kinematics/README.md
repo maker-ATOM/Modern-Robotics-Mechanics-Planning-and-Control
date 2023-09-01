@@ -24,17 +24,29 @@ T_{01} = \begin{bmatrix}
     sin\theta_1 & cos\theta_1 & 0 & 0 \\
     0 & 0 & 1 & 0 \\
     0 & 0 & 0 & 1
-\end{bmatrix} \quad \quad \quad T_{12} = \begin{bmatrix}
+\end{bmatrix} 
+$$
+
+$$
+T_{12} = \begin{bmatrix}
     cos\theta_2 & -sin\theta_2 & 0 & L_1 \\
     sin\theta_2 & cos\theta_2 & 0 & 0 \\
     0 & 0 & 1 & 0 \\
     0 & 0 & 0 & 1
-\end{bmatrix} \\ T_{23} = \begin{bmatrix}
+\end{bmatrix} 
+$$
+
+$$
+T_{23} = \begin{bmatrix}
     cos\theta_3 & -sin\theta_3 & 0 & L_2 \\
     sin\theta_3 & cos\theta_3 & 0 & 0 \\
     0 & 0 & 1 & 0 \\
     0 & 0 & 0 & 1
-\end{bmatrix} \quad \quad \quad T_{34} = \begin{bmatrix}
+\end{bmatrix} 
+$$
+
+$$
+T_{34} = \begin{bmatrix}
     1 & 0 & 0 & L_3 \\
     0 & 1 & 0 & 0 \\
     0 & 0 & 1 & 0 \\
@@ -121,4 +133,4 @@ $$
 
 where B are the screw axes represented in {b} frame.
 
-Programming question number 4 and 5 of Week 1 if solved in MATLAB produce wrong answer hence needs to be solved in python.
+**Note:** Programming question number 4 and 5 of Week 1 if solved in MATLAB produce wrong answer hence needs to be solved in python.
