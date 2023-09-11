@@ -5,7 +5,7 @@ function se3mat = VecTose3(V)
 % Example Input:
 % 
 % clear; clc;
- V = [1; 0; 0; 0; 2; 3];
+ V = [0; 0; 0; 0; 0; 1];
 % se3mat = VecTose3(V)
 % 
 % Output:

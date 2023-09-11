@@ -6,7 +6,7 @@ function expmat = MatrixLog6(T)
 % Example Input:
 % 
 % clear; clc;
- T = [[0, -1, 0, 3]; [1, 0, 0, 0]; [0, 0,1, 1]; [0, 0, 0, 1]];
+ T = [[1, 0, 0, 0]; [0,1, 0, 0]; [0, 0,1, 0]; [0, 0, 0, 1]];
 % expmat = MatrixLog6(T)
 % 
 % Output:

@@ -5,7 +5,7 @@ function AdT = Adjoint(T)
 % Example Input:
 % 
 % clear; clc;
- T = [[1, 0, 0, 0]; [0, 0, -1, 0]; [0, 1, 0, -2]; [0, 0, 0, 1]];
+ T = [[1, 0, 0, 0]; [0, 1, 0, 0]; [0, 0, 1, 0]; [0, 0, 0, 1]];
 % AdT = Adjoint(T)
 % 
 % Output:

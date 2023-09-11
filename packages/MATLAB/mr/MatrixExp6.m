@@ -6,7 +6,10 @@ function T = MatrixExp6(se3mat)
 % Example Input:
 % 
 % clear; clc;
- se3mat = [0,-2,1,3;2,0,0,0;-1,0,0,0;0,0,0,0]
+ se3mat = [0,0,0,0;
+           0,0,0,0;
+           0,0,-1,0;
+           0,0,0,0]
 % T = MatrixExp6(se3mat)
 % 
 % Output:

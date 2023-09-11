@@ -7,12 +7,11 @@ function Jb = JacobianBody(Blist, thetalist)
 % Returns the corresponding body Jacobian (6xn real numbers).
 % Example Input:
 % 
-% clear; clc;
-% Blist = [[0; 0; 1;   0; 0.2; 0.2], ...
-%        [1; 0; 0;   2;   0;   3], ...
-%        [0; 1; 0;   0;   2;   1], ...
-%        [1; 0; 0; 0.2; 0.3; 0.4]];
-% thetalist = [0.2; 1.1; 0.1; 1.2];
+ clear; clc;
+ Blist = [[0; 1; 0;   0; 0; 0], ...
+        [-1; 0; 0;   0;   0;   0], ...
+        [0; 0; 0;   0;   0;   1]];
+ thetalist = [0; 0; 0];
 % Jb = JacobianBody(Blist, thetalist)
 % 
 % Output:
